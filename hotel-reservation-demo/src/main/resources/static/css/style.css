@@ -1,0 +1,32 @@
+main{
+    margin-bottom: -50px;
+    min-height: 100%;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+}
+
+.container-fluid{
+    height: 100vh;
+}
+
+
+
+
+#wallpaper{
+    text-align: center;
+    background-image: url("../picture/pexels-asman-chema-594077.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+
+    background-color: rgba(173, 172, 166, .6);
+    background-blend-mode: multiply;
+}
+
+form {
+    text-align: start;
+}

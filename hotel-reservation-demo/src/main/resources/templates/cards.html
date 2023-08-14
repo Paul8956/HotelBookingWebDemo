@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Card Example</title>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h2>Cards</h2>
+                    <div class="card-deck">
+                        <div class="card" th:each="card : ${cards}">
+                            <div class="card-body">
+                                <h5 class="card-title" th:text="${card.title}">Card Title</h5>
+                                <p class="card-text" th:text="${card.description}">Card description.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <select class= "form-select  mb-3" id="countrySelect" aria-label="country">
+                        <option value="台北市" selected>台北市</option>
+                        <option value="新北市">新北市</option>
+                        <option value="桃園縣">>桃園縣</option>
+                    </select>
+                    <button type="button" id="sendRequestButton">Show Name</button>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript" th:src="@{/js/homepage/search.js}"></script>
+        <script th:inline="javascript">
+            var nameJs = /*[[${cards}]]*/;
+        </script>
+    </body>
+</html>

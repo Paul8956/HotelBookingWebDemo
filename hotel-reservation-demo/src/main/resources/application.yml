@@ -1,0 +1,31 @@
+server:
+  port: 8081
+
+logging:
+  level:
+    root: warn
+    com.lrm: debug
+  file:
+    name: logs/debug.log
+
+spring:
+  datasource:
+    url: jdbc:mariadb://192.168.1.103:3306/hotel-reservation-demo?useUnicode=true&characterEncoding=utf-8
+    username: root
+    password: "0000"
+    driver-class-name: org.mariadb.jdbc.Driver
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+      properties:
+        hibernate:
+          dialect: org.hibernate.dialect.MariaDBDialect
+  resources:
+    static-locations: classpath:/static/
+    cache-period: 0
+  thymeleaf:
+    mode: HTML
+    prefix: classpath:/templates/
+    suffix: .html
+    enabled: true

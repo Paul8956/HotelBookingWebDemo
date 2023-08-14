@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head >
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link th:href="@{/css/style.css}" rel="stylesheet" type="text/css">
+    <title>Login Page</title>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row" style="height: 100vh;">
+        <div class="col-md-7 col-xl-9 col-12" id="wallpaper"></div>
+        <div class="col-md-5 col-xl-3 col-12" id="formpage">
+          <div class="row" style="height: 20vh;"></div>
+          <div class="row">
+            <h2>Register</h2>
+            <form action="/register" th:object="${register}" method="post">
+              <div class="form-group mb-3">
+                <label for="register-acc" class="form-label">UserAccount</label>
+                <input type="text" class="form-control" id="register-acc" name="username" th:field="*{username}">
+                <p class="form-control-static text-danger" th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></p>
+              </div>
+              <div class="form-group mb-3">
+                <label for="register-pwd" class="form-label">Password</label>
+                <input type="password" class="form-control" id="register-pwd" name="userpwd" th:field="*{userpwd}">
+                <p class="form-control-static text-danger" th:if="${#fields.hasErrors('userpwd')}" th:errors="*{userpwd}"></p>
+              </div>
+              <div class="form-group mb-3">
+                <label for="confirmregister-pwd" class="form-label">Confirm Password</label>
+                <input type="password" class="form-control" id="confirmregister-pwd" name="confirmuserpwd" th:field="*{confirmuserpwd}">
+                <p class="form-control-static text-danger" th:if="${#fields.hasErrors('confirmuserpwd')}" th:errors="*{confirmuserpwd}"></p>
+              </div>
+              <div class="form-group mb-3">
+                <label for="register-fname" class="form-label">Firstname</label>
+                <input type="text" class="form-control" id="register-fname" name="fname" th:field="*{fname}">
+                <p class="form-control-static text-danger" th:if="${#fields.hasErrors('fname')}" th:errors="*{fname}"></p>
+              </div>
+              <div class="form-group mb-3">
+                <label for="register-lname" class="form-label">Lastname</label>
+                <input type="text" class="form-control" id="register-lname" name="lname" th:field="*{lname}">
+                <p class="form-control-static text-danger" th:if="${#fields.hasErrors('lname')}" th:errors="*{lname}"></p>
+              </div>
+              <div class="form-group mb-3">
+                <label for="register-mail" class="form-label">E-mail</label>
+                <input type="email" class="form-control" id="register-mail" name="mail" th:field="*{mail}">
+                <p class="form-control-static text-danger" th:if="${#fields.hasErrors('mail')}" th:errors="*{mail}"></p>
+              </div>
+              <div class="form-group mb-3">
+                <label for="register-pnum" class="form-label">Phonenumber</label>
+                <input type="text" class="form-control" id="register-pnum" name="phone" th:field="*{phone}">
+                <p class="form-control-static text-danger" th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}"></p>
+              </div>
+              <div class="d-flex justify-content-end">
+                <button type="submit" class="btn btn-primary">Register</button>
+              </div>
+            </form>
+
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+  </body>
+</html>
