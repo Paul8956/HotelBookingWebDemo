@@ -10,9 +10,9 @@ logging:
 
 spring:
   datasource:
-    url: jdbc:mariadb://192.168.1.103:3306/hotel-reservation-demo?useUnicode=true&characterEncoding=utf-8
-    username: root
-    password: "0000"
+    url: jdbc:mariadb://your-domain:3306/your-table?useUnicode=true&characterEncoding=utf-8
+    username: your-username
+    password: your-password
     driver-class-name: org.mariadb.jdbc.Driver
   jpa:
     show-sql: true
