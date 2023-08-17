@@ -17,7 +17,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
 
 @Controller
 public class ItemsPageController {
@@ -72,18 +74,30 @@ public class ItemsPageController {
         if(order.getDoubleroom() == null){order.setDoubleroom(0);}
         if(order.getQuadroom() == null){order.setQuadroom(0);}
 
-        order.setTotalprice(totalCount(order.getHotel_name(), order.getSingleroom(), order.getDoubleroom(), order.getQuadroom()));
+        Long totalDays = totalDays(order.getCheckin_time(), order.getCheckout_time());
+        System.out.println(totalDays);
+        order.setTotalprice(totalCount(totalDays, order.getHotel_name(), order.getSingleroom(), order.getDoubleroom(), order.getQuadroom()));
 
         orderDao.save(order);
         return "redirect:/home";
     }
 
-    public Integer totalCount(String hotel_name, Integer singleroom, Integer doubleroom, Integer quadroom){
+    public Integer totalCount(Long totalDays, String hotel_name, Integer singleroom, Integer doubleroom, Integer quadroom){
+
+        Integer tDays = totalDays.intValue();
         Integer totalcount =
-                (itemDao.findSingleroomPrice(hotel_name) * singleroom) +
+                ((itemDao.findSingleroomPrice(hotel_name) * singleroom) +
                         (itemDao.findDoubleroomPrice(hotel_name) * doubleroom) +
-                        (itemDao.findQuadroomPrice(hotel_name) * quadroom);
+                        (itemDao.findQuadroomPrice(hotel_name) * quadroom)) * tDays;
         return totalcount;
+    }
+
+    public Long totalDays(LocalDateTime checkin_time, LocalDateTime checkout_time){
+
+        LocalDate checkinDate = checkin_time.toLocalDate();
+        LocalDate checkoutDate = checkout_time.toLocalDate();
+
+        return ChronoUnit.DAYS.between(checkinDate, checkoutDate);
     }
 
 }
