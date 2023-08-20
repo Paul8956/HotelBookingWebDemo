@@ -25,6 +25,6 @@ HomePage
 ![螢幕擷取畫面 2023-08-14 211738](https://github.com/Paul8956/HotelBookingWebDemo/assets/136450327/ce615d11-11f5-4be9-b451-760c6a84f7e0)
 後臺商品頁(使用假資料)
 ![螢幕擷取畫面 2023-08-14 211836](https://github.com/Paul8956/HotelBookingWebDemo/assets/136450327/e4abf2ea-cbc5-4d4f-ba3f-26b329ef7558)
-後台訂單頁(假資料)
+後台訂單管理頁面
 ![image](https://github.com/Paul8956/HotelBookingWebDemo/assets/136450327/1aebe9a1-fef9-4683-a724-30978ca80cd3)
 
